@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using BigBear.Core.Runtime.Singleton;
-using BigBear.Core.Runtime.Utils;
+using MyTool.Core.Runtime.Singleton;
+using MyTool.Core.Runtime.Utils;
 using Lean.Touch;
 using Sirenix.OdinInspector;
 using UnityEditor;
@@ -181,10 +181,11 @@ public class HandController : Singleton<HandController>
         }
     }
 
+    private WaitForSeconds wait0p1Sec = new WaitForSeconds(0.1f);
     private IEnumerator CoHandDown()
     {
         handImg.sprite = fingerUpSprites[handTypeIndex];
-        yield return WaitUtils.Wait0p1Sec;
+        yield return wait0p1Sec;
         handImg.sprite = fingerDownSprites[handTypeIndex];
         clickEff.transform.position = handTrans.position;
         clickEff.Play();
@@ -193,7 +194,7 @@ public class HandController : Singleton<HandController>
 
     private IEnumerator CoHandUp()
     {
-        yield return WaitUtils.Wait0p1Sec;
+        yield return wait0p1Sec;
         handImg.sprite = fingerUpSprites[handTypeIndex];
         yield return new WaitForSeconds(tapTime);
         if (!isHandFollowMouse)
@@ -207,9 +208,9 @@ public class HandController : Singleton<HandController>
         handTrans.anchoredPosition = localPos;
         handTrans.gameObject.SetActive(true);
         handImg.sprite = fingerUpSprites[handTypeIndex];
-        yield return WaitUtils.Wait0p2Sec;
+        yield return wait0p1Sec;
         handImg.sprite = fingerDownSprites[handTypeIndex];
-        yield return WaitUtils.Wait0p2Sec;
+        yield return wait0p1Sec;
         handImg.sprite = fingerUpSprites[handTypeIndex];
         yield return new WaitForSeconds(tapTime);
         if (!isHandFollowMouse)

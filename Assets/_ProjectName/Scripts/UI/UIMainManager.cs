@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using BigBear.Core.Runtime.Singleton;
+using MyTool.Core.Runtime.Singleton;
 using DoozyUI;
 using UnityEngine;
 

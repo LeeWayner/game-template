@@ -4,5 +4,5 @@ Gói tool tay cho marketing
   + Cách import gói qua package Manager: xem trên link trang github trên.
  
  - Cần 1 số package :
-  + BigBear core package.
+  + MyTool core package.
   + Odin.
